@@ -1,1 +1,1 @@
-['video-player'](/video_player/README.md)
+[video-player](/video_player/README.md)
