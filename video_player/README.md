@@ -97,3 +97,68 @@ class _MyHomePageState extends State<MyHomePage> {
 2. კონტროლერს ვენბებით, რომ ვიდეო ლუპში უნდა გაეშვას.
 3. ვაინიციალიზირებთ კონტროლერს.
 4. ვიწყებთ ვიდეოს ჩვენებას.
+
+
+## showing video from assets
+
+პირველ რიგში შექმენი assets ფოლდერი შენს პროექტში და ატვირთე შენი სასურველი ვიდეო:
+
+![](assets/image5.png)
+
+initState მეთოდში ნაცვლად networkUrl ფუნქციისა ვიყენებთ asset ფუნქციას
+
+```dart
+@override
+  void initState() {
+    super.initState();
+
+    controller = VideoPlayerController.asset('assets/bee.mp4');
+    controller.initialize();
+    controller.setLooping(true);
+    controller.initialize().then((_) => setState(() {}));
+    controller.play();
+
+  }
+
+```
+
+შენს პროექტში pubspec.yaml ფაილის ბოლოს დაამატე შემდეგი ინსტრუქცია:
+
+```yaml
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+  
+```
+
+სრული ფაილი ასე გამოიყურება:
+
+```yaml
+name: showing_videos
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  video_player: ^2.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+  
+
+```
+
+ამის შემდეგ შეგეძლება აპლიკაციასი აჩვენო სასურველი ვიდეო პროექტის ფაილებიდან:
